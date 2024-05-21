@@ -10,13 +10,13 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class queenDialog; }
 QT_END_NAMESPACE
 
-class queenDialog : public QDialog
+class QueenDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    queenDialog(std::filesystem::path program_dir, QWidget *parent = nullptr);
-    ~queenDialog();
+    QueenDialog(std::filesystem::path program_dir, QWidget *parent = nullptr);
+    ~QueenDialog();
 
 private slots:
     void on_pushButton_clicked();

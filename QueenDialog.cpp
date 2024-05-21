@@ -4,7 +4,7 @@
 
 #include <QProcess>
 
-queenDialog::queenDialog(std::filesystem::path program_dir, QWidget *parent)
+QueenDialog::QueenDialog(std::filesystem::path program_dir, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::queenDialog)
     , program_dir{program_dir}
@@ -18,14 +18,14 @@ queenDialog::queenDialog(std::filesystem::path program_dir, QWidget *parent)
     TrayIcon::Instance()->setVisible(true);
 }
 
-queenDialog::~queenDialog()
+QueenDialog::~QueenDialog()
 {
     delete ui;
     hook.uninstallHook();
 }
 
 
-void queenDialog::on_pushButton_clicked()
+void QueenDialog::on_pushButton_clicked()
 {
     if (auto script = program_dir / "action.ps1"; std::filesystem::exists(script)) {
         QStringList args;
