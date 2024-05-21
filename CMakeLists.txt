@@ -14,13 +14,13 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
         main.cpp
-        queenDialog.cpp
-        queenDialog.h
+        QueenDialog.cpp
+        QueenDialog.h
         queendialog.ui
-        hook.h
-        hook.cpp
-        trayicon.h
-        trayicon.cpp
+        Hook.h
+        Hook.cpp
+        TrayIcon.h
+        TrayIcon.cpp
         icon.qrc
 )
 
