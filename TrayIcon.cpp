@@ -3,6 +3,7 @@
 #include <QMenu>
 #include <QApplication>
 #include <windows.h>
+#include <QTimer>
 
 QScopedPointer<TrayIcon> TrayIcon::self;
 
@@ -20,7 +21,7 @@ TrayIcon* TrayIcon::Instance(){
 TrayIcon::TrayIcon(QObject *parent)
     : QObject{parent}
 {
-    mainWidget = 0;
+    mainWidget = nullptr;
     trayIcon = new QSystemTrayIcon(this);
     trayIcon->setIcon(QIcon(":/mintray.ico"));
     menu = new QMenu;
@@ -45,6 +46,7 @@ void TrayIcon::showMainWidget()
     if(mainWidget)
     {
         mainWidget->showNormal();
+        QTimer::singleShot(3000, mainWidget, QWidget::hide);
     }
 }
 
