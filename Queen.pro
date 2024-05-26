@@ -28,10 +28,18 @@ FORMS += queendialog.ui
 
 # 资源文件
 RESOURCES += icon.qrc
+LIBS += -lgdi32
+
+# 设置图标
+RC_ICONS = deepl.ico
 
 # 针对不同的 Qt 版本，设置不同的属性
 greaterThan(QT_MAJOR_VERSION, 5): {
-    QMAKE_LIBS += -ltiff -lmng.dll -ljpeg -ljbig -ldeflate -lzstd -llerc -llzma -lgraphite2 -lbz2 -lusp10 -lRpcrt4 -lsharpyuv
+    # 设置 Bundle 相关属性
+    CONFIG += macx_bundle
+    QMAKE_MACOSX_BUNDLE_GUI_IDENTIFIER = my.example.com
+    QMAKE_MACOSX_BUNDLE_VERSION = $$VERSION
+    QMAKE_MACOSX_BUNDLE_SHORT_VERSION_STRING = $$VERSION_MAJOR.$$VERSION_MINOR
 
     # 设置 WIN32_EXECUTABLE 属性
     win32:CONFIG(release, debug|release): LIBS += -Wl,-subsystem,windows

@@ -23,14 +23,13 @@ TrayIcon::TrayIcon(QObject *parent)
 {
     mainWidget = nullptr;
     trayIcon = new QSystemTrayIcon(this);
-    trayIcon->setIcon(QIcon(":/mintray.ico"));
+    trayIcon->setIcon(QIcon(":/deepl.ico"));
     menu = new QMenu;
 }
 
 QWidget* TrayIcon::getMainWidget() const
 {
     return this->mainWidget;
-
 }
 
 void TrayIcon::setMainWidget(QWidget *mainWidget)

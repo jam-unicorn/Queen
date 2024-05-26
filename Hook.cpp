@@ -5,7 +5,7 @@
 #include <QDebug>
 
 static HHOOK mouseHook = nullptr;
-static Hook* hook;
+static auto hook = std::make_unique<Hook>();
 
 Hook::Hook(QObject *parent)
     : QObject{parent}
@@ -15,6 +15,9 @@ Hook::Hook(QObject *parent)
 
 void moveToMousePosition(QWidget *window, int x, int y)
 {
+    // 手动调整的偏移
+    x += 16;
+    y += 20;
     // 获取系统的 DPI 缩放比例
     HDC screen = GetDC(NULL);
     int dpiX = GetDeviceCaps(screen, LOGPIXELSX);
@@ -35,7 +38,7 @@ void moveToMousePosition(QWidget *window, int x, int y)
     int windowHeight = windowRect.bottom - windowRect.top;
 
     // 移动窗口到指定位置
-    window->move(adjustedX - windowWidth / 2, adjustedY - windowHeight / 2 + 20);
+    window->move(adjustedX - windowWidth / 2, adjustedY - windowHeight / 2);
     SetWindowPos((HWND)window->winId(), HWND_TOPMOST, 0, 0, 0, 0,
                  SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW);
 }
@@ -159,7 +162,7 @@ QString Hook::getText() const{
 
 void Hook::installHook(){
     mouseHook = SetWindowsHookEx(WH_MOUSE_LL, MouseProc, nullptr, 0);
-    hook = this;
+    hook.reset(this);
 }
 
 void Hook::uninstallHook(){
