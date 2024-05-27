@@ -23,7 +23,7 @@ TrayIcon::TrayIcon(QObject *parent)
 {
     mainWidget = nullptr;
     trayIcon = new QSystemTrayIcon(this);
-    trayIcon->setIcon(QIcon(":/deepl.ico"));
+    trayIcon->setIcon(QIcon(":/deepl-logo-blue.svg"));
     menu = new QMenu;
 }
 
