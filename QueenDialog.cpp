@@ -11,8 +11,8 @@ QueenDialog::QueenDialog(std::filesystem::path program_dir, QWidget *parent)
 {
     ui->setupUi(this);
     hook.installHook();
-//    connect(&hook, SIGNAL(setWindowOpen(bool)), this, SLOT(openWindow(bool)));
     this->setWindowFlags(Qt::FramelessWindowHint | Qt::Tool | Qt::ToolTip);
+    this->setAttribute(Qt::WA_TranslucentBackground, true);
     TrayIcon::Instance()->setMainWidget(this);
     this->hide();
     TrayIcon::Instance()->setVisible(true);

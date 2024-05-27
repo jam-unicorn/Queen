@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>deepl.ico</file>
+        <file>deepl-logo-blue.svg</file>
     </qresource>
 </RCC>

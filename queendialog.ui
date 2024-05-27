@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>queen</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
@@ -22,12 +25,15 @@
      <height>20</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background:transparent;</string>
+   </property>
    <property name="text">
     <string/>
    </property>
    <property name="icon">
     <iconset resource="icon.qrc">
-     <normaloff>:/deepl.ico</normaloff>:/deepl.ico</iconset>
+     <normaloff>:/deepl-logo-blue.svg</normaloff>:/deepl-logo-blue.svg</iconset>
    </property>
    <property name="iconSize">
     <size>
